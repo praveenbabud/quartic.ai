@@ -1,0 +1,26 @@
+
+1. Briefly describe the conceptual approach you chose! What are the trade-offs?
+   It was a binary classification problem.
+   Issues that I addressed were
+   a.) Uneven Classes
+   b.) Missing Values
+   I created 26 models with almost equal class ratio. 26 random samples were selected from the zero class.
+   Each sample is mixed with the same one class to train the models.
+   Numeric missing values are filled using mean and categorical values are filled using mode.
+   The values are calculated seperately for the two classes.
+   Categorical variables are encoded using a vector(if variable has 3 level a vector of length 3 is used to encode)
+   Logistic Regression is used.
+   
+2. What's the model performance? What is the complexity? Where are the bottlenecks?
+   Recall and Precision for both labels was around 0.59.
+   I used area under PR curve and ROC curve to measure performance.
+   Bottlenecks: I used mean and mode(to fill missing values) so it must have reduced variance in the data.
+       
+                
+3. If you had more time, what improvements would you make, and in what order of priority?
+   1. Cross Validation
+   2. Exploratory Analysis
+   3. Compare with Random Forest model(to choose between interpretable model vs black-box models
+   4. Try to create the model from first principles(instead of using general logistic regression)
+   5. Use ROC, area under PR, Kappa to measure model performance
+   6. convert the script into a spark job 
